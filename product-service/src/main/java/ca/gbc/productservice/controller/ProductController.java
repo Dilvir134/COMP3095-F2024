@@ -31,7 +31,7 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @PutMapping
+    @PutMapping("/{productId}")
     // @ResponseStatus(HttpStatus.NO_CONTENT)
     // http://localhost:8080/api/product/id
     public ResponseEntity<?> updateProduct(@PathVariable("productId") String productId,
@@ -46,7 +46,7 @@ public class ProductController {
         return new ResponseEntity<>(headers, HttpStatus.NO_CONTENT);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{productId}")
     public ResponseEntity<?> deleteProduct(@PathVariable("productId") String productId) {
         productService.deleteProduct(productId);
 
