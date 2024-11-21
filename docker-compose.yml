@@ -10,6 +10,9 @@
 version: '3.9'
 
 services:
+
+
+
   order-service:
     image: order-service
     ports:
