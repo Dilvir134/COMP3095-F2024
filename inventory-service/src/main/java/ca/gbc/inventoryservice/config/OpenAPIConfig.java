@@ -23,5 +23,4 @@ public class OpenAPIConfig {
                         .description("Inventory Service Wiki Documentation")
                         .url("https://mycompany.ca/inventory-service/docs"));
     }
-
 }
