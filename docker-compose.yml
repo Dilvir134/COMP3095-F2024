@@ -201,6 +201,22 @@ services:
     networks:
       - spring
 
+  notification-service:
+    container_name: notification-service
+    image: notification-service
+    ports:
+      - "8085:8085"
+    build:
+      context: ./notification-service
+      dockerfile: ./DockerFile
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - order-service
+      - inventory-service
+    networks:
+      - spring
+
 
 volumes:
   mongo:
