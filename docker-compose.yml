@@ -208,7 +208,7 @@ services:
       - "8085:8085"
     build:
       context: ./notification-service
-      dockerfile: ./DockerFile
+      dockerfile: ./Dockerfile
     environment:
       SPRING_PROFILES_ACTIVE: docker
     depends_on:

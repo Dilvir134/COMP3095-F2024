@@ -5,6 +5,7 @@ import ca.gbc.orderservice.dto.OrderRequest;
 import ca.gbc.orderservice.event.OrderPlacedEvent;
 import ca.gbc.orderservice.model.Order;
 import ca.gbc.orderservice.repository.OrderRepository;
+import com.github.tomakehurst.wiremock.admin.NotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +43,7 @@ public class OrderServiceImpl implements OrderService{
             log.info("Complete - Sent OrderPlacedEvent {} to kafka topic order-placed", orderPlacedEvent);
         }
         else {
-            throw new RuntimeException("Product with skuCode " + orderRequest.skuCode() + " is not in stock");
+            throw new NotFoundException("Product with skuCode " + orderRequest.skuCode() + " is not in stock");
         }
     }
 }
